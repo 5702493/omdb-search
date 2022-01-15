@@ -1,1 +1,27 @@
-<p>movie works!</p>
+<div class="container">
+  <mat-card *ngIf="movie$ | async as movie">
+    <div class="card-row">
+      <div class="card-col-img">
+        <img class="w-100"
+          [src]="movie.Poster"
+          alt="Movie poster">
+      </div>
+      <div class="card-col-section">
+        <section class="card-section">
+          <mat-card-title-group>
+            <mat-card-title>{{movie.Title}}</mat-card-title>
+            <mat-card-subtitle>{{movie.Year}}</mat-card-subtitle>
+          </mat-card-title-group>
+          <mat-card-content>
+            <p><strong>Runtime:</strong> {{movie.Runtime}}</p>
+            <p><strong>Genre:</strong> {{movie.Genre}}</p>
+            <p><strong>Director:</strong> {{movie.Director}}</p>
+            <p><strong>Actors:</strong> {{movie.Actors}}</p>
+            <p><strong>Plot:</strong> {{movie.Plot}}</p>
+            <p><strong>Country:</strong> {{movie.Country}}</p>
+          </mat-card-content>
+        </section>
+      </div>
+    </div>
+  </mat-card>
+</div>

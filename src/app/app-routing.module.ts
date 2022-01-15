@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { MovieComponent } from './movie/movie.component';
+import { MovieResolver } from './movie/movie.resolver';
 
 const routes: Routes = [{
   path: '',
@@ -11,7 +12,10 @@ const routes: Routes = [{
 }, {
   path: 'movie/:id',
   pathMatch: 'full',
-  component: MovieComponent
+  component: MovieComponent,
+  resolve: {
+    movie: MovieResolver
+  }
 }, {
   path: '**',
   redirectTo: '/'

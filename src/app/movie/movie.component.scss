@@ -1,0 +1,38 @@
+.card-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card-col-img {
+  width: 100%;
+
+  @media (min-width: 576px) {
+    width: 50%;
+  }
+
+  @media (min-width: 768px) {
+    width: 33.333%;
+  }
+}
+
+.card-col-section {
+  width: 100%;
+
+  @media (min-width: 576px) {
+    width: 50%;
+  }
+
+  @media (min-width: 768px) {
+    width: 66.666%;
+  }
+}
+
+.card-section {
+  padding-top: 16px;
+  padding-left: 16px;
+  
+  @media (min-width: 576px) {
+    padding-top: 0;
+  }
+}

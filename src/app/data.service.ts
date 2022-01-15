@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Search, SearchObject } from './home/search.model';
+import { MovieObject } from './movie/movie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,15 @@ export class DataService {
 
   getData(value: string, page: number): Observable<SearchObject> {
     return this.http.get<SearchObject>(this.url + '&s=' + value + '&page=' + page);
+  }
+
+  getMovie(id: string): Observable<MovieObject> {
+    return this.http.get<MovieObject>(this.url + '&i=' + id)
+      .pipe(map((movie: MovieObject): MovieObject => {
+        if (movie.Poster === 'N/A') {
+          movie.Poster = './assets/n_a.jpg';
+        }
+        return movie;
+      }));
   }
 }
