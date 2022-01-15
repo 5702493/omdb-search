@@ -1,0 +1,15 @@
+.table-responsive {
+  overflow: auto;
+}
+
+.table {
+  th:not(:last-child),
+  td:not(:last-child) {
+    padding-right: 16px;
+  }
+}
+
+.table,
+.pagination {
+  min-width: 328px;
+}

@@ -23,4 +23,8 @@ export class DataService {
         return [];
       }));
   }
+
+  getData(value: string, page: number): Observable<SearchObject> {
+    return this.http.get<SearchObject>(this.url + '&s=' + value + '&page=' + page);
+  }
 }
