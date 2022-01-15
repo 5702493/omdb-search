@@ -1,16 +1,19 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { DataService } from './data.service';
 
-describe('DataService', () => {
+describe('DataService', (): void => {
   let service: DataService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
+  beforeEach((): void => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule]
+    });
     service = TestBed.inject(DataService);
   });
 
-  it('should be created', () => {
+  it('should be created', (): void => {
     expect(service).toBeTruthy();
   });
 });

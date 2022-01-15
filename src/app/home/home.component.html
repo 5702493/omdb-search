@@ -1,1 +1,25 @@
-<p>home works!</p>
+<div class="container">
+  <form class="w-100"
+    [formGroup]="myForm"
+    (ngSubmit)="onSubmit(myForm)">
+    <mat-form-field class="w-100">
+      <mat-label>Movie</mat-label>
+      <input type="text"
+        placeholder="Enter a title"
+        aria-label="Number"
+        matInput
+        formControlName="myControl"
+        [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async"
+          [value]="option.Title"
+          (onSelectionChange)="navigateTo($event, option.imdbID)">{{option.Title}}</mat-option>
+      </mat-autocomplete>
+      <button mat-button
+        matSuffix
+        mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+</div>
