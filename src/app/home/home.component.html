@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="w-100"
+  <form class="search-form w-100"
     [formGroup]="myForm"
     (ngSubmit)="onSubmit(myForm)">
     <mat-form-field class="w-100">
@@ -22,41 +22,42 @@
       </button>
     </mat-form-field>
   </form>
-  <div class="table-responsive"
-    *ngIf="dataSource">
-    <table class="table w-100"
-      mat-table
-      [dataSource]="dataSource">
-      <ng-container matColumnDef="Title">
-        <th mat-header-cell
-          *matHeaderCellDef>Title</th>
-        <td mat-cell
-          *matCellDef="let element">
-          <a [routerLink]="['/movie', element.imdbID]">{{element.Title}}</a>
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="Year">
-        <th mat-header-cell
-          *matHeaderCellDef>Year</th>
-        <td mat-cell
-          *matCellDef="let element">{{element.Year}}</td>
-      </ng-container>
-      <ng-container matColumnDef="Type">
-        <th mat-header-cell
-          *matHeaderCellDef>Type</th>
-        <td mat-cell
-          *matCellDef="let element">{{element.Type}}</td>
-      </ng-container>
-      <tr mat-header-row
-        *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row
-        *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+  <ng-container *ngIf="dataSource">
+    <div class="table-responsive">
+      <table class="table w-100"
+        mat-table
+        [dataSource]="dataSource">
+        <ng-container matColumnDef="Title">
+          <th mat-header-cell
+            *matHeaderCellDef>Title</th>
+          <td mat-cell
+            *matCellDef="let element">
+            <a [routerLink]="['/movie', element.imdbID]">{{element.Title}}</a>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Year">
+          <th mat-header-cell
+            *matHeaderCellDef>Year</th>
+          <td mat-cell
+            *matCellDef="let element">{{element.Year}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Type">
+          <th mat-header-cell
+            *matHeaderCellDef>Type</th>
+          <td mat-cell
+            *matCellDef="let element">{{element.Type}}</td>
+        </ng-container>
+        <tr mat-header-row
+          *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row
+          *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
     <div class="pagination">
       <mat-paginator [length]="totalResults"
         [pageSize]="10"
         [hidePageSize]="true"
         (page)="onPagination($event, myForm)"></mat-paginator>
     </div>
-  </div>
+  </ng-container>
 </div>

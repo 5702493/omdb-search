@@ -1,15 +1,18 @@
+.search-form {
+  max-width: 508px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .table-responsive {
   overflow: auto;
 }
 
 .table {
+  min-width: 328px;
+
   th:not(:last-child),
   td:not(:last-child) {
     padding-right: 16px;
   }
-}
-
-.table,
-.pagination {
-  min-width: 328px;
 }

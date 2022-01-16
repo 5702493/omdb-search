@@ -50,8 +50,16 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup): void {
-    this.currentSearch = form.value.myControl;
-    this.getDataSource(this.currentSearch, 1, true);
+    const value: string = form.value.myControl.trim();
+    if (value) {
+      this.currentSearch = value;
+      form.setValue({
+        myControl: this.currentSearch
+      }, {
+        emitEvent: false
+      });
+      this.getDataSource(this.currentSearch, 1, true);
+    }
   }
 
   navigateTo(event: MatOptionSelectionChange, imdbID: string): void {
